@@ -75,14 +75,16 @@ Usage
 'use strict'
 
 const pon = require('pon')
-const ponTaskCommand = require('pon-task-command')
+const { fork } = require('pon-task-command')
 
 async function tryExample () {
   let run = pon({
-    myTask01: ponTaskCommand()
+    'dev': fork('./bin/app.js', {
+      env: { DEBUG: 'project:*' }
+    })
   })
 
-  run('myTask01')
+  run('dev')
 }
 
 tryExample()
