@@ -8,12 +8,14 @@
 
 const define = require('./define')
 const fork = require('./fork')
+const spawn = require('./spawn')
 
 let lib = define.bind(this)
 
 Object.assign(lib, define, {
   define,
-  fork
+  fork,
+  spawn
 })
 
 module.exports = lib
