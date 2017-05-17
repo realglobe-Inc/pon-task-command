@@ -125,6 +125,17 @@ Forking task
 | options.messageHandler | function |  Message handler |
 
 
+### `spawn(cmd, args, options) -> function`
+
+Spawning task
+
+| Param | type | Description |
+| ---- | --- | ----------- |
+| cmd | string |  Command to execute |
+| args | string[] |  Command arguments |
+| options | Object |  Optional settings |
+
+
 
 <!-- Section from "doc/guides/03.Signature.md.hbs" End -->
 
