@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/realglobe-Inc/pon-task-command#readme",
   "dependencies": {
+    "argx": "^3.0.2",
     "co": "^4.6.0"
   },
   "devDependencies": {
