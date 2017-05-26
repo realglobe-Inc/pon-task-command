@@ -1,6 +1,6 @@
 {
   "name": "pon-task-command",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Pon task to execute commands",
   "main": "lib",
   "browser": "shim/browser",
