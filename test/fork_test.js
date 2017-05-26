@@ -21,8 +21,12 @@ describe('fork', function () {
   }))
 
   it('Fork', () => co(function * () {
+    process.env.a = 'A'
     let ctx = ponContext()
-    let task = fork(require.resolve('../misc/mocks/mock-forkable'))
+    let task = fork(require.resolve('../misc/mocks/mock-forkable'), {
+      env: { b: 'B' }
+    })
+    process.env.c = 'C'
     ok(task)
 
     yield Promise.resolve(task(ctx))
