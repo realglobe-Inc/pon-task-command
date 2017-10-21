@@ -7,20 +7,20 @@
 const fork = require('../lib/fork.js')
 const ponContext = require('pon-context')
 const { ok } = require('assert')
-const co = require('co')
+
 
 describe('fork', function () {
   this.timeout(3000)
 
-  before(() => co(function * () {
+  before(async () => {
 
-  }))
+  })
 
-  after(() => co(function * () {
+  after(async () => {
 
-  }))
+  })
 
-  it('Fork', () => co(function * () {
+  it('Fork', async () => {
     process.env.a = 'A'
     let ctx = ponContext()
     let task = fork(require.resolve('../misc/mocks/mock-forkable'), {
@@ -29,8 +29,8 @@ describe('fork', function () {
     process.env.c = 'C'
     ok(task)
 
-    yield Promise.resolve(task(ctx))
-  }))
+    await Promise.resolve(task(ctx))
+  })
 })
 
 /* global describe, before, after, it */

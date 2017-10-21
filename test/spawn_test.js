@@ -7,26 +7,26 @@
 const spawn = require('../lib/spawn.js')
 const ponContext = require('pon-context')
 const assert = require('assert')
-const co = require('co')
+
 
 describe('spawn', function () {
   this.timeout(3000)
 
-  before(() => co(function * () {
+  before(async () => {
 
-  }))
+  })
 
-  after(() => co(function * () {
+  after(async () => {
 
-  }))
+  })
 
-  it('Spawn', () => co(function * () {
+  it('Spawn', async () => {
     let ctx = ponContext()
     let task = spawn('echo', [ 'hoge' ], {})
     assert.ok(task)
 
-    yield Promise.resolve(task(ctx))
-  }))
+    await Promise.resolve(task(ctx))
+  })
 })
 
 /* global describe, before, after, it */
