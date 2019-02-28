@@ -6,7 +6,7 @@
 
 const spawn = require('../lib/spawn.js')
 const ponContext = require('pon-context')
-const assert = require('assert')
+const assert = require('assert').strict
 
 describe('spawn', function () {
   this.timeout(3000)
@@ -30,6 +30,15 @@ describe('spawn', function () {
   it('Sub', async () => {
     const ctx = ponContext()
     await spawn.git('--version')(ctx)
+  })
+
+  it('Status code', async () => {
+    const ctx = ponContext()
+    const failingTask = spawn('false')
+
+    await assert.rejects(async () => {
+      await failingTask(ctx)
+    })
   })
 })
 
