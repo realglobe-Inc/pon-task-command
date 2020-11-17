@@ -45,6 +45,12 @@ describe('spawn', function () {
       }
     })
   })
+
+  it('Spawn a process in which it kills self', async () => {
+    const ctx = ponContext()
+    const task = spawn(require.resolve('../misc/mocks/mock-kill-self'))
+    await task(ctx)
+  })
 })
 
 /* global describe, before, after, it */
