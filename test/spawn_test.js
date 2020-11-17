@@ -37,7 +37,12 @@ describe('spawn', function () {
     const failingTask = spawn('false')
 
     await assert.rejects(async () => {
-      await failingTask(ctx)
+      try {
+        await failingTask(ctx)
+      } catch (e) {
+        console.error(e.message)
+        throw e
+      }
     })
   })
 })
